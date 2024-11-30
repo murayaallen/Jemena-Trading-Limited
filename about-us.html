@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Jemena Trading Limited</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background-color: #0056b3; /* Blue */
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding: 40px;
+            background-color: #ffffff;
+        }
+        .about-section h2 {
+            color: #0056b3; /* Blue */
+            animation: fadeIn 2s ease-in;
+        }
+        .about-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Button Animation */
+        .learn-more {
+            background-color: #e60000; /* Red */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            animation: slideUp 2s ease;
+            transition: background-color 0.3s ease;
+        }
+        .learn-more:hover {
+            background-color: #0056b3; /* Blue */
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+        <div class="company-name">
+            Jemena Trading Limited
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <h2>About Us</h2>
+        <p>
+            Jemena Trading Limited is a trusted provider of industrial chemicals, reagents, and specialty chemicals. Our commitment to quality, compliance, and safety ensures that we deliver products that meet the highest international standards. Partnering with leading global distributors and manufacturers, we strive to provide our clients with the best quality products tailored to their specific needs.
+        </p>
+        <p>
+            Our mission is to serve a wide range of industries, including manufacturing, water treatment, mining, and food processing. We pride ourselves on our flexibility, offering tailored repackaging solutions that allow customers to order chemicals in smaller or custom quantities. This dedication to meeting unique client needs sets us apart in the industry.
+        </p>
+        <p>
+            In addition to our extensive product range, we provide expert chemical analysis and formulation advice to ensure optimal use of our products. Our dedicated team is always ready to assist clients in achieving their operational goals. To further enhance our services, we also offer delivery to our clients’ locations, ensuring that your chemical supplies reach you promptly and safely.
+        </p>
+        <p>
+            At Jemena Trading Limited, our goal is not only to provide products but also to foster long-term partnerships built on trust, reliability, and excellence. We are committed to safety and sustainability in all our operations, aiming to create a positive impact on the industries we serve.
+        </p>
+        <a href="products.html" class="learn-more">Learn More</a>
+    </section>
+
+</body>
+</html>

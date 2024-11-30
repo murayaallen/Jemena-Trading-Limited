@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jemena Trading Limited - Products</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+                /* Back Button Styles */
+                .back-button {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Border with transparency */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px; /* Rounded corners for the box */
+            text-decoration: none;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 9999; /* Ensures the button stays on top of all elements */
+        }
+
+        .back-button svg {
+           width: 25px;
+           height: 25px;
+           fill: #000000; /* Solid red arrow */
+           transition: transform 0.3s ease, filter 0.3s ease;
+           filter: drop-shadow(0 0 5px #5f5656);
+        }
+
+        .back-button:hover {
+           background-color: rgba(0, 0, 0, 0.2); /* Slight red tint on hover */
+           box-shadow: 0 0 10px #0c3963, 0 0 20px #0c2c68; /* Glow around the box */
+         }
+
+        .back-button:hover svg {
+           transform: scale(1.2); /* Slightly enlarges the arrow on hover */
+           filter: drop-shadow(0 0 10px #ff0000);
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('s1.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 255, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: 20px auto;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .slideshow-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .slideshow-container img.active {
+            display: block;
+            animation: fadeEffect 2s ease-in-out;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Product List Section */
+        .product-list-section {
+            padding: 50px 20px;
+            background-color: #ffffffbe;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-list-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #004080;
+        }
+
+        .product-list-section p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Search Bar */
+        #product-search {
+            display: block;
+            margin: 0 auto 20px;
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            font-size: 16px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #004080;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Neon Glow Effect */
+        .glow-text {
+            color: #333;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .glow-text:hover {
+            color: #000000;
+            text-shadow: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #product-search {
+                width: 80%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #product-search {
+                width: 90%;
+            }
+
+            th, td {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button"> 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+        </svg>
+    </a>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img id="loading-logo" src="Jemena-logo.png" alt="Loading">
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Solvents</h1>
+        </div>
+    </header>
+
+    <!-- Product List Section -->
+    <section class="product-list-section">
+        <h2>Unleashing the Power of Precision Solvents</h2>
+        <p>Elevate your processes with our premium range of solvents, meticulously crafted to meet the highest standards in performance and versatility.
+            From enabling seamless cleaning to enhancing formulations in cosmetics, paints, and industrial applications, our solvents are the backbone of countless innovations. Designed for efficiency and reliability, they empower you to achieve precision in every task, whether you’re crafting the perfect blend, maintaining immaculate tools, or pushing the boundaries of industrial excellence.
+            With tailored packaging options to suit your needs, our solvents deliver unmatched quality and consistency. Step into a world where every drop works as hard as you do.
+        <p>
+    <!-- Slideshow Section -->
+        <div class="slideshow-container">
+            <img src="image1.jpg" alt="Image 1" class="active">
+            <img src="image2.jpg" alt="Image 2">
+            <img src="image3.jpg" alt="Image 3">
+        </div>
+        
+        <!-- Search Bar -->
+        <input 
+            type="text" 
+            id="product-search" 
+            placeholder="Search products..." 
+            onkeyup="filterProducts()">
+
+        <!-- Products Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product Name</th>
+                    <th>Application</th>
+                    <th>Packaging Sizes</th>
+                </tr>
+            </thead>
+            <tbody id="product-table">
+                <tr class="product-row">
+                    <td>1</td>
+                    <td class="glow-text">Acetone</td>
+                    <td class="glow-text">A versatile solvent used in cleaning, thinning, and cosmetic formulations.</td>
+                    <td class="glow-text">5kg, 20kg</td>
+                </tr>
+                <tr class="product-row">
+                    <td>2</td>
+                    <td class="glow-text">Butyl Glycol Ether</td>
+                    <td class="glow-text">Solvent for paints, coatings, and cleaning products.</td>
+                    <td class="glow-text">5kg, 20kg</td>
+                </tr>
+                <tr class="product-row">
+                    <td>3</td>
+                    <td class="glow-text">Carbomer 940</td>
+                    <td class="glow-text">Thickening agent in personal care and cosmetic products.</td>
+                    <td class="glow-text">Custom Packaging Available, 20kg</td>
+                </tr>
+                <tr class="product-row">
+                    <td>4</td>
+                    <td class="glow-text">Denatured IMS 96%</td>
+                    <td class="glow-text">Industrial solvent and disinfectant for various applications.</td>
+                    <td class="glow-text">5kg, 20kg</td>
+                </tr>
+                <tr class="product-row">
+                    <td>5</td>
+                    <td class="glow-text">Isopropyl Alcohol Pure</td>
+                    <td class="glow-text">A multipurpose solvent and sanitizer in cleaning and cosmetic products.</td>
+                    <td class="glow-text">5kg, 20kg</td>
+                </tr>
+                <tr class="product-row">
+                    <td>6</td>
+                    <td class="glow-text">Methanol Denatured</td>
+                    <td class="glow-text">Solvent for industrial and laboratory use.</td>
+                    <td class="glow-text">5kg, 20kg </td>
+                </tr>
+                <tr class="product-row">
+                    <td>7</td>
+                    <td class="glow-text">Solvent C9 (Naphtha 100)</td>
+                    <td class="glow-text">Used in paints, coatings, and industrial cleaning applications.</td>
+                    <td class="glow-text">5kg, 20kg</td>
+                </tr>
+                <tr class="product-row">
+                    <td>8</td>
+                    <td class="glow-text">White Spirit</td>
+                    <td class="glow-text">Solvent for thinning paints, cleaning tools, and degreasing surfaces.</td>
+                    <td class="glow-text">5kg, 20kg</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Loading Screen Script
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.display = 'none';
+        });
+
+        // Automatic Slideshow
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.slideshow-container img');
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 5000);
+
+        // Search Functionality
+        function filterProducts() {
+            const input = document.getElementById('product-search').value.toLowerCase();
+            const rows = document.querySelectorAll('.product-row');
+
+            rows.forEach(row => {
+                const name = row.children[1].textContent.toLowerCase();
+                const application = row.children[2].textContent.toLowerCase();
+                const packaging = row.children[3].textContent.toLowerCase();
+
+                if (name.includes(input) || application.includes(input) || packaging.includes(input)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
