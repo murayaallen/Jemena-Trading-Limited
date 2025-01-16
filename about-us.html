@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,92 +13,406 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            overflow-x: hidden;
         }
 
-        /* Top Navigation Bar */
-        .top-nav {
-            background-color: #0056b3; /* Blue */
-            color: white;
-            padding: 10px;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Back Button Styles */
+        .back-button {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* About Us Section */
-        .about-section {
-            padding: 40px;
-            background-color: #ffffff;
+        .back-button:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px #0c3963, 0 0 20px #0c2c68;
         }
-        .about-section h2 {
-            color: #0056b3; /* Blue */
-            animation: fadeIn 2s ease-in;
+
+        .back-button svg {
+            width: 25px;
+            height: 25px;
+            fill: #000000;
         }
-        .about-section p {
-            line-height: 1.6;
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            background-image: url('soapp.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 255, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Section */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: slideInLeft 1s ease-in;
+        }
+
+        /* Content Blocks */
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .content-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .content-block img {
+            width: 50%;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-block {
+            flex: 1;
+        }
+
+        .text-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
             margin-bottom: 15px;
         }
 
-        /* Loading Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Core Values */
+        .core-values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
         }
 
-        /* Button Animation */
-        .learn-more {
-            background-color: #e60000; /* Red */
-            color: white;
-            padding: 10px 20px;
+        .core-value-item {
+            flex: 1 1 calc(33.333% - 20px);
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .core-value-item h3 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* Statistics Section */
+        .statistics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .stat-item {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff9800;
+            transition: transform 0.2s ease; /* Adds smooth scaling during updates */
+        }
+
+        .stat-desc {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #101ed6;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff9800;
             text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            animation: slideUp 2s ease;
-            transition: background-color 0.3s ease;
-        }
-        .learn-more:hover {
-            background-color: #0056b3; /* Blue */
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        footer a:hover {
+            text-decoration: underline;
         }
 
-        /* Media Queries */
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .about-section {
-                padding: 20px;
+            .content-block {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content-block img {
+                width: 100%;
+            }
+
+            .core-value-item {
+                flex: 1 1 100%;
+            }
+
+            .statistics {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-<body>
 
-    <!-- Top Navigation Bar -->
-    <div class="top-nav">
-        <div class="company-name">
-            Jemena Trading Limited
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+    </a>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>About Jemena Trading Limited</h1>
         </div>
     </div>
 
-    <!-- About Us Section -->
-    <section class="about-section">
-        <h2>About Us</h2>
-        <p>
-            Jemena Trading Limited is a trusted provider of industrial chemicals, reagents, and specialty chemicals. Our commitment to quality, compliance, and safety ensures that we deliver products that meet the highest international standards. Partnering with leading global distributors and manufacturers, we strive to provide our clients with the best quality products tailored to their specific needs.
-        </p>
-        <p>
-            Our mission is to serve a wide range of industries, including manufacturing, water treatment, mining, and food processing. We pride ourselves on our flexibility, offering tailored repackaging solutions that allow customers to order chemicals in smaller or custom quantities. This dedication to meeting unique client needs sets us apart in the industry.
-        </p>
-        <p>
-            In addition to our extensive product range, we provide expert chemical analysis and formulation advice to ensure optimal use of our products. Our dedicated team is always ready to assist clients in achieving their operational goals. To further enhance our services, we also offer delivery to our clients’ locations, ensuring that your chemical supplies reach you promptly and safely.
-        </p>
-        <p>
-            At Jemena Trading Limited, our goal is not only to provide products but also to foster long-term partnerships built on trust, reliability, and excellence. We are committed to safety and sustainability in all our operations, aiming to create a positive impact on the industries we serve.
-        </p>
-        <a href="products.html" class="learn-more">Learn More</a>
-    </section>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Mission and Vision -->
+        <section>
+            <div class="section-title">Our Mission and Vision</div>
+            <div class="content-block">
+                <img src="mission.jpg" alt="Mission">
+                <div class="text-block">
+                    <p><strong>Mission:</strong> To provide tailored chemical solutions to industries while ensuring safety, quality, and sustainability.</p>
+                    <p><strong>Vision:</strong> To be the most trusted and innovative supplier of industrial chemicals in Africa, fostering long-term partnerships with clients and making a positive impact on the industries we serve.</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Company Story -->
+        <section>
+            <div class="section-title">Our Story</div>
+            <div class="content-block">
+                <img src="story.jpg" alt="Our Story">
+                <div class="text-block">
+                    <p>Jemena Trading Limited was born in 2020, a year defined by global upheaval and extraordinary challenges. In the face of unprecedented demand for critical chemical products, the company emerged as a solution-driven force, answering the call for industries in desperate need. Founded with a vision to provide reliable, high-quality chemical solutions during a time of crisis, Jemena Trading Limited quickly established itself as a lifeline for essential sectors. What began as a determined effort to meet immediate needs has grown into a dynamic enterprise that now serves a vast array of industries, including manufacturing, mining, water treatment, and food processing.</p>
+
+                    <p>Driven by innovation, integrity, and an unyielding commitment to excellence, the company has built its reputation by partnering with trusted global suppliers and ensuring its products meet the highest international standards. Jemena Trading Limited is not just a chemical supplier—it is a catalyst for progress, empowering industries to thrive even in the most challenging circumstances. Its remarkable journey from a startup in a crisis to an industry leader stands as a testament to resilience, adaptability, and a steadfast dedication to delivering value where it matters most.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values -->
+        <section>
+            <div class="section-title">Our Guiding Principles</div>
+            <div class="core-values">
+                <div class="core-value-item">
+                    <h3>Quality</h3>
+                    <p>Delivering only the best products that meet global standards.</p>
+                </div>
+                <div class="core-value-item">
+                    <h3>Sustainability</h3>
+                    <p>Ensuring eco-friendly and ethical practices in every operation.</p>
+                </div>
+                <div class="core-value-item">
+                    <h3>Reliability</h3>
+                    <p>Building trust through consistent, on-time delivery and support.</p>
+                </div>
+            </div>
+        </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Statistics Section -->
+        <section>
+            <div class="section-title">Our Numbers Speak for Themselves</div>
+            <div class="statistics">
+                <div>
+                    <div class="stat-item" data-target="600+">0</div>
+                    <div class="stat-desc">Clients Served</div>
+                </div>
+                <div>
+                    <div class="stat-item" data-target="100+">0</div>
+                    <div class="stat-desc">Tonnes Delivered</div>
+                </div>
+                <div>
+                    <div class="stat-item" data-target="20+">0</div>
+                    <div class="stat-desc">Years of Experience</div>
+                </div>
+                <div>
+                    <div class="stat-item" data-target="1">Fast</div>
+                    <div class="stat-desc">Delivery Services</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact us at:</p>
+        <p>Phone: +254 795 792 234 | Email: <a href="mailto:info@jemenatrading.co.ke">info@jemenatrading.co.ke</a></p>
+        <p>&copy; 2025 Jemena Trading Limited. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Scrolling Animations and Number Randomization -->
+    <script>
+        // Scrolling Animations
+        const sections = document.querySelectorAll('section');
+
+        const sectionObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        sections.forEach((section) => sectionObserver.observe(section));
+
+        // Function to animate numbers
+        function animateNumber(element, target) {
+            let current = 0;
+            const duration = 2000; // Total animation duration (2 seconds)
+            const increment = Math.ceil(target / 100); // Increment per step
+            const interval = duration / (target / increment); // Interval per update
+
+            // Set up interval to update numbers
+            const updateNumber = setInterval(() => {
+                current += increment; // Increment the current number
+                if (current >= target) {
+                    current = target; // Set to target value when exceeded
+                    clearInterval(updateNumber); // Stop the interval
+                }
+                element.textContent = current; // Update the displayed number
+            }, interval);
+        }
+
+        // Function to handle Intersection Observer for numbers
+        function triggerNumberAnimation(entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute("data-target"), 10); // Final number
+                    animateNumber(entry.target, target); // Start animation
+                    observer.unobserve(entry.target); // Stop observing after animation
+                }
+            });
+        }
+
+        // Create an Intersection Observer to trigger animations
+        const statItems = document.querySelectorAll(".stat-item");
+        const numberObserver = new IntersectionObserver(triggerNumberAnimation, { threshold: 0.5 }); // Trigger at 50% visibility
+
+        // Observe each stat item
+        statItems.forEach((item) => numberObserver.observe(item));
+    </script>
 </body>
+
 </html>
