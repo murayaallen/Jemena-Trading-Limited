@@ -12,6 +12,17 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         /* Loading Screen Styles */
@@ -93,6 +104,7 @@
             font-size: 14px;
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .contact-info-bar div {
@@ -127,6 +139,7 @@
             justify-content: center; /* Space items evenly */
             margin: 0;
             padding: 0;
+            gap: 20px;
         }
 
         nav ul li {
@@ -214,10 +227,10 @@
 
         .hero button {
             padding: 15px 30px;
-            background-color: #ffcc00;
+            background-color: #0e12da;
             border: none;
             border-radius: 50px;
-            color: #333;
+            color: #ffffff;
             font-size: 18px;
             font-weight: bold;
             margin-top: 30px;
@@ -250,110 +263,359 @@
             }
         }
 
-     /* About Us Section Fullscreen Layout */
-     .about-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        width: 100%;
-        background: #ffffff;
-        color: #000000;
+        /* Responsive Design */
+@media (max-width: 1024px) {
+    .top-nav .company-name img {
+        width: 60px;
     }
 
-    .about-content {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        max-width: 1200px;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.979);
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    .hero h1 {
+        font-size: 48px;
     }
 
-    /* Image Slideshow */
-    .image-slideshow {
-        width: 50%;
-        overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    .hero p {
+        font-size: 20px;
     }
 
-    .slideshow-container {
-        display: flex;
-        transition: transform 1s ease;
-        width: 100%;
-        animation: slideShow 12s infinite;
+    .hero button {
+        font-size: 16px;
     }
+}
 
-    .slide {
-        min-width: 100%;
-        height: 100%;
-    }
-
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 12px;
-    }
-
-    /* Text Content */
-    .about-text {
-        width: 50%;
-        padding: 20px;
-        animation: fadeIn 1.5s ease-in;
-    }
-
-    .about-text h2 {
+@media (max-width: 768px) {
+    .hero h1 {
         font-size: 36px;
-        color: #000000;
-        margin-bottom: 15px;
-        text-shadow: 0 0 5px #ffffff, 0 0 10px #004080;
     }
 
-    .about-text p {
+    .hero p {
         font-size: 18px;
-        line-height: 1.8;
-        color: #000000;
-        margin-bottom: 15px;
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
+    .hero button {
+        font-size: 14px;
+        padding: 10px 20px;
     }
 
-    @keyframes slideShow {
-        0% { transform: translateX(0); }
-        33% { transform: translateX(-100%); }
-        66% { transform: translateX(-200%); }
-        100% { transform: translateX(0); }
+    .top-nav .company-name img {
+        width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .about-content {
-            flex-direction: column;
-            padding: 20px;
-        }
-
-        .image-slideshow, .about-text {
-            width: 100%;
-        }
-
-        .about-text h2 {
-            font-size: 28px;
-        }
+    .hero p {
+        font-size: 16px;
     }
+
+    .hero button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+
+/* About Us Section */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    background: #ffffff;
+    color: #000000;
+    padding: 80px 20px;
+}
+
+/* About Content */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* About Us Heading */
+.about-heading {
+    text-align: center;
+}
+
+.about-heading h2 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* About Us Layout */
+.about-layout {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Image Placeholder */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #999;
+    transition: transform 0.3s ease;
+}
+
+.image-placeholder:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* About Text */
+.about-text {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #000000;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #ff9800;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #e68900;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .about-heading h2 {
+        font-size: 40px; /* Adjust heading size for tablets */
+    }
+
+    .about-layout {
+        gap: 30px; /* Reduce gap for tablets */
+    }
+
+    .about-text {
+        font-size: 16px; /* Adjust text size for better readability */
+    }
+
+    .image-placeholder {
+        max-width: 400px; /* Reduce image size for tablets */
+        height: 250px;
+    }
+
+    .learn-more-btn {
+        font-size: 14px; /* Adjust button size */
+        padding: 10px 25px;
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .about-content {
+        gap: 40px; /* Reduce spacing between sections */
+    }
+
+    .about-heading h2 {
+        font-size: 32px; /* Smaller heading for mobile */
+    }
+
+    .about-layout {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center;
+    }
+
+    .about-text {
+        font-size: 14px; /* Adjust text size for mobile */
+    }
+
+    .image-placeholder {
+        max-width: 300px; /* Adjust image size for mobile */
+        height: 200px;
+    }
+
+    .learn-more-btn {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+}
+
+/* Small Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .about-heading h2 {
+        font-size: 28px;
+    }
+
+    .about-text {
+        font-size: 12px;
+    }
+
+    .image-placeholder {
+        max-width: 250px;
+        height: 150px;
+    }
+
+    .learn-more-btn {
+        font-size: 12px;
+        padding: 6px 18px;
+    }
+}
+
+/* Statistics Caption Text Box */
+.statistics-caption {
+    position: relative;
+    background: #000000;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px 40px;
+    margin: 60px 0;
+    border-radius: 12px;
+    width: 75%; /* Occupy 3/4 of the page */
+    text-align: left;
+    line-height: 1.5;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: skew(-5deg); /* Creative slant */
+}
+
+.statistics-caption p {
+    transform: skew(5deg); /* Align text inside skewed box */
+    margin: 0;
+}
+
+.statistics-caption::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background: #ff9800;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+/* Company Statistics */
+.company-statistics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 40px; /* Space between grid items */
+    justify-items: center;
+    align-items: center;
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Subtle background for the section */
+    border-radius: 12px; /* Rounded corners for the section */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.stat-item {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 12px; /* Rounded corners for each stat item */
+    background: #fff; /* White background for the stat cards */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Card shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.stat-item:hover {
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.stat-item .icon {
+    font-size: 80px; /* Adjusted icon size */
+    margin-bottom: 15px;
+    color: #ff9800; /* Icon color */
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.stat-item:hover .icon {
+    color: #e68900; /* Darker orange on hover */
+}
+
+.stat-item h3 {
+    font-size: 60px; /* Large, bold numbers */
+    color: #333; /* Dark text color */
+    margin: 10px 0;
+}
+
+.stat-item p {
+    font-size: 22px; /* Subtext size */
+    color: #666; /* Gray subtext */
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .company-statistics {
+        grid-template-columns: 1fr; /* Stack stats vertically on smaller screens */
+        gap: 20px; /* Reduce spacing for smaller devices */
+    }
+
+    .stat-item .icon {
+        font-size: 60px; /* Reduce icon size for smaller screens */
+    }
+
+    .stat-item h3 {
+        font-size: 48px; /* Adjust number size for smaller screens */
+    }
+
+    .stat-item p {
+        font-size: 18px; /* Adjust subtext size */
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-item h3 {
+        font-size: 40px; /* Further reduce number size for very small screens */
+    }
+
+    .stat-item p {
+        font-size: 16px; /* Adjust subtext for mobile devices */
+    }
+}
+
 
 
     /* Why Choose Us Section Styles */
     .why-choose-us-section {
-        padding: 60px 20px;
+        padding: 80px 50px;
         background-image: url('IMG_0071.jpg'); /* Placeholder for your custom background */
         background-size: cover;
         background-attachment: fixed;
@@ -389,20 +651,21 @@
 
     /* Grid Layout */
     .why-choose-us-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Dynamic column sizing */
         gap: 30px;
         position: relative;
         z-index: 2;
+        justify-items: center; /* Center items in the grid */
     }
 
     /* Why Choose Us Item */
     .why-item {
         background: rgba(255, 255, 255, 0.1);
         border-radius: 10px;
-        padding: 20px;
-        width: 280px;
+        padding: 30px;
+        width: 100%;
+        max-width: 350px;
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         opacity: 0;
@@ -417,14 +680,14 @@
 
     /* Icon Styles */
     .why-item .icon {
-        font-size: 2.5rem;
+        font-size: 3rem;
         margin-bottom: 15px;
         color: #ffeb3b; /* Gold color for icons */
     }
 
     /* Text Styling */
     .why-item h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         margin-bottom: 10px;
         color: #ffffff;
     }
@@ -445,6 +708,73 @@
             transform: translateY(0);
         }
     }
+
+    /* Responsive Design */
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .why-choose-us-section h2 {
+        font-size: 2rem; /* Adjust heading size for tablets */
+    }
+
+    .why-item {
+        width: 240px; /* Reduce card size for smaller screens */
+    }
+
+    .why-item .icon {
+        font-size: 2rem; /* Smaller icons for tablets */
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .why-choose-us-grid {
+        gap: 20px; /* Adjust spacing between items */
+    }
+
+    .why-item {
+        width: 90%; /* Full-width cards for mobile */
+    }
+
+    .why-choose-us-section h2 {
+        font-size: 1.8rem; /* Smaller heading for mobile */
+    }
+
+    .why-item .icon {
+        font-size: 1.8rem;
+    }
+
+    .why-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .why-item p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* Small Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .why-choose-us-section {
+        padding: 40px 10px; /* Reduce padding for small devices */
+    }
+
+    .why-choose-us-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .why-item .icon {
+        font-size: 1.5rem;
+    }
+
+    .why-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .why-item p {
+        font-size: 0.8rem;
+    }
+}
 
 
     /* Products Section */
@@ -904,26 +1234,60 @@
         <button onclick="window.location.href='#products'">Explore Our Products</button>
     </section>
 
-    <!-- About Us Section -->
-    <section class="about-section" id="about">
-       <div class="about-content">
-        <!-- Image Slideshow -->
-          <div class="image-slideshow">
-            <div class="slideshow-container">
-                <div class="slide"><img src="IMG_9965.jpg" alt="Chemical Lab"></div>
-                <div class="slide"><img src="IMG_9895.jpg" alt="Lab Equipment"></div>
-                <div class="slide"><img src="IMG_9852.jpg" alt="Chemical Storage"></div>
+<!-- About Us Section -->
+<div class="about-section">
+    <div class="about-content">
+        <!-- About Us Heading -->
+        <div class="about-heading">
+            <h2>About Jemena Trading Limited</h2>
+        </div>
+
+        <div class="about-layout">
+            <!-- Image Placeholder -->
+            <div class="about-image">
+                <!-- Replace this with an <img> tag for your image -->
+                <div class="image-placeholder">Image Placeholder</div>
+            </div>
+
+            <!-- About Us Text -->
+            <div class="about-text">
+                <p>Jemena Trading Limited is your trusted partner in the supply of high-quality industrial chemicals, reagents, and specialty chemicals. With decades of experience, we have built a reputation for delivering tailored chemical solutions that empower industries to thrive.</p>
+                <p>Our comprehensive portfolio serves diverse industries such as water treatment, food production, mining, cosmetics, and more. Located in Industrial Area, Nairobi, Kenya, we’re dedicated to excellence, sustainability, and global compliance.</p>
+                <p>We pride ourselves on ensuring seamless delivery, flexible supply options, and personalized customer service, helping businesses achieve their operational goals with efficiency and reliability.</p>
+                <!-- Learn More Button -->
+                <a href="about-us.html" class="learn-more-btn">Learn More</a>
             </div>
         </div>
 
-        <!-- About Us Text Content -->
-        <div class="about-text">
-            <h2>About Jemena Trading Limited</h2>
-            <p>Welcome to Jemena Trading Limited, your trusted partner in supplying high-quality industrial chemicals, reagents, and specialty chemicals to various sectors. With a focus on excellence and tailored solutions, we serve industries from water treatment to food production, mining, cosmetics, and beyond.</p>
-            <p>Located in Industrial Area, Nairobi, Kenya, we’re committed to sustainable practices and compliance with global standards. Our team strives to deliver flexible chemical solutions that empower industries to thrive.</p>
+        <!-- Caption Text Box -->
+        <div class="statistics-caption">
+            <p>"Empowering industries with numbers that tell a story of trust, experience, and reliability."</p>
         </div>
+
+<!-- Company Statistics Section -->
+<div class="company-statistics">
+    <div class="stat-item" data-target="600+">
+        <div class="icon">👥</div>
+        <h3>0</h3>
+        <p>+ Clients Served</p>
     </div>
-</section>
+    <div class="stat-item" data-target="100">
+        <div class="icon">🚚</div>
+        <h3>0</h3>
+        <p>+ Tonnes of Chemicals Delivered</p>
+    </div>
+    <div class="stat-item" data-target="17">
+        <div class="icon">⏳</div>
+        <h3>0</h3>
+        <p>Years of Industry Experience</p>
+    </div>
+    <div class="stat-item" data-target="200">
+        <div class="icon">⚗️</div>
+        <h3>Fast</h3>
+        <p>+ Various Chemicals Available</p>
+    </div>
+</div>
+
 
     
     <!-- Why Choose Us Section -->
@@ -932,8 +1296,8 @@
       <div class="why-choose-us-grid">
         <div class="why-item">
             <div class="icon">&#9733;</div> <!-- Star Icon -->
-            <h3>Industry Expertise</h3>
-            <p>Over 20 years of experience across various sectors, providing top-notch solutions tailored to your needs.</p>
+            <h3>Safety Compliance Excellence</h3>
+            <p>99.9% safety compliance rate achieved.</p>
         </div>
         <div class="why-item">
             <div class="icon">&#128736;</div> <!-- Tool Icon -->
@@ -1099,6 +1463,45 @@
         window.addEventListener("scroll", animateOnScroll);
         window.addEventListener("load", animateOnScroll);
     </script>
+    <script>
+        // Function to animate numbers
+        function animateNumber(element, target) {
+            let current = 0;
+            const duration = 2000; // Total animation duration (2 seconds)
+            const increment = Math.ceil(target / 100); // Increment per step
+            const interval = duration / (target / increment); // Interval per update
+    
+            // Set up interval to update numbers
+            const updateNumber = setInterval(() => {
+                current += increment; // Increment the current number
+                if (current >= target) {
+                    current = target; // Set to target value when exceeded
+                    clearInterval(updateNumber); // Stop the interval
+                }
+                element.textContent = current; // Update the displayed number
+            }, interval);
+        }
+    
+        // Function to trigger animations when stats are in view
+        function triggerNumberAnimation(entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('h3'); // Get the h3 element
+                    const target = parseInt(entry.target.getAttribute("data-target"), 10); // Target number
+                    animateNumber(statNumber, target); // Start animation
+                    observer.unobserve(entry.target); // Stop observing after animation
+                }
+            });
+        }
+    
+        // Create an Intersection Observer for the statistics section
+        const statItems = document.querySelectorAll(".stat-item");
+        const statObserver = new IntersectionObserver(triggerNumberAnimation, { threshold: 0.5 }); // Trigger at 50% visibility
+    
+        // Observe each statistic item
+        statItems.forEach((item) => statObserver.observe(item));
+    </script>
+    
 
 </body>
 </html>
